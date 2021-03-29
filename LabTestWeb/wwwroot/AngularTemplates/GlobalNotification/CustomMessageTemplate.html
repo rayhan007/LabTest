@@ -1,0 +1,42 @@
+﻿<style>
+    .alert {
+        height: 50px;
+        margin-top: 10px;
+        color: #147113;
+      /*  background: #289c3b54 !important;*/
+    }
+
+    .alert .close {
+        float: right;
+        margin-top: -39px;
+        background: gray;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        color: white;
+        opacity: 1;
+    }
+    
+    .alert .close span {
+        float: left;
+        margin-left: 5px;
+        margin-top: -6px;
+        font-size: 24px;
+        font-weight: normal !important;
+        outline:none;
+    }
+</style>
+    <div class="login alert alert-dismissable alert-success" ng-show="successMessage.length" id="successmessageDiv">
+
+        <p>{{MessageHtml}}</p>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="alert alert-dismissable alert-danger" ng-show="errorMessage.length" id="errormessageDiv">
+
+        <p ng-bind-html="MessageHtml"></p>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>

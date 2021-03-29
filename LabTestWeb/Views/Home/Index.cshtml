@@ -1,0 +1,109 @@
+﻿
+<link href="~/assets/css/swipper.min.css" rel="stylesheet" />
+
+<style>
+    .tab {
+        overflow: hidden;
+        margin-bottom: 40px;
+    }
+
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 20px 0px 10px 0px;
+            transition: 0.3s;
+            font-size: 22px;
+            margin-left: 18px;
+            margin-right: 20px;
+        }
+
+            .tab button:hover {
+                color: #8d32cf;
+            }
+
+            .tab button.active {
+                border-bottom: 2px solid #8d32cf;
+                color: #8d32cf;
+            }
+</style>
+<div ng-controller="indexController" id="angularpage">
+    <div class="home">
+
+        <div class="tab">
+            <button class="tablinks" onclick="openItem(event, 'assignment')" id="defaultOpen">Assignment</button>
+            <button class="tablinks" onclick="openItem(event, 'send-item')">Sent Items</button>
+        </div>
+
+        <div id="assignment" class="tabcontent">
+            <h2 class="swipper-title">Todays Assignment</h2>
+            <div class="swiper-container">
+                <div class="row">
+                    <div ng-repeat="TodayDayAssignment in TodayDayAssignmentlist" class="col-md-3 col-sm-6">
+
+                        <div class="item">
+                            <ul>
+                                <li class="date">{{TodayDayAssignment.assignmentDateString}}</li>
+                                <li>{{TodayDayAssignment.assignmentDate| date:'dd/MM/yyyy'}}</li>
+                                <li>{{TodayDayAssignment.startTime}}</li>
+                                <li><i class="fa fa-map-marker"></i> {{TodayDayAssignment.assignmentPlace}}</li>
+                            </ul>
+                            <div class="content">
+                                <p>{{TodayDayAssignment.assignmentSubject}} </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <div class="row feature-section">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div ng-repeat="SevenDayReporterStory in SevenDayReporterStorylist" class="col-md-6">
+                            <div class="feature-box">
+                                <div class="feature-text">
+                                    <h5>{{SevenDayReporterStory.assignmentSubject}}</h5>
+                                    <span>{{SevenDayReporterStory.assignmentDateString}} at {{SevenDayReporterStory.startTime}}</span>
+                                </div>
+                            </div>
+                            <div class="feature-img">
+                                <img src="~/assets/images/home/dots.png" />
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       
+
+
+    </div>
+</div>
+@section footer_scripts{
+
+    <script src="~/assets/js/model/indexController.js"></script>
+    <script>
+        document.getElementById("defaultOpen").click();
+        function openItem(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+
+}

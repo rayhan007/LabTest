@@ -1,0 +1,114 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+<!doctype html>
+<html lang="en" ng-app="eSenderApp" ng-cloak>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/assets/css/datepicker.css" rel="stylesheet" />
+    <link href="~/assets/css/wickedpicker.min.css" rel="stylesheet" />
+    <link href="~/assets/css/style.css" rel="stylesheet" />
+    <link href="~/assets/css/table.css" rel="stylesheet" />
+
+
+
+
+
+    <title>LabTest</title>
+</head>
+<body>
+
+    <!-- Header -->
+    <nav>
+
+        <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="~/Home/index">Home</a></li>
+          
+        </ul>
+
+        <div class="logo">
+            
+        </div>
+    </nav>
+
+    <div class="container">
+        <main role="main" class="pb-3" style="min-height:500px;">
+            @RenderBody()
+        </main>
+    </div>
+    <!-- footer -->
+    <section class="footer-section">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-7">
+
+                  
+                       
+                </div>
+                <div class="col-md-5 copyright ">
+                    <p class="m-0 text-center">
+                       
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+ 
+    <div ng-show="loading" id="divloader"><div class="circle-Main"></div><div class="circle-small"></div><div class="circle-big"></div><div class="circle-inner-inner"></div><div class="circle-inner"></div></div>
+
+
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/popper.min.js"></script>
+    <script src="~/assets/js/datepicker.js"></script>
+    <script src="~/assets/js/wickedpicker.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/custom.js"></script>
+    <script src="~/assets/js/table.js"></script>
+    @* <script src="~/assets/js/imageuploadify.min.js"></script>*@
+
+
+
+
+
+    <!-- AngularJS -->
+    <script src="~/assets/vendor/angular-1.8.0/angular.js"></script>
+    @*<script src="~/assets/vendor/angular-1.8.0/angular.min.js"></script>*@
+    <script src="~/assets/vendor/angular-1.8.0/angular-sanitize.min.js"></script>
+    <script src="~/assets/vendor/angular-1.8.0/angularModule.js"></script>
+
+    <!-- Kendo -->
+    <script src="~/assets/js/main-bundlev2.js"></script>
+    <script src="~/assets/js/main-bundle-supp2.js"></script>
+
+    <!-- Bootbox alert-->
+    <script src="~/assets/js/bootbox.min.js"></script>
+
+    <!-- Parsley Validations -->
+    <script src="~/assets/js/parsley.min.js"></script>
+
+    <script>
+
+    </script>
+
+    @RenderSection("footer_scripts", required: false)
+
+
+
+
+</body>
+</html>

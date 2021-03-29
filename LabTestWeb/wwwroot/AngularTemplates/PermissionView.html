@@ -1,0 +1,37 @@
+﻿<style>
+    td {text-align:center;}
+</style>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 class="panel-title">All Permissions Set for this Role</h3>
+    </div>
+    <div class="panel-body" style="height:380px;overflow-y:scroll">
+        <!--<div ng-Show="noRole">
+            <h5 style="font-weight:bolder">There is no permisssion for this role</h5>
+        </div>-->
+    
+            <div ng-repeat="md in modules" ng-show="md.permissions.length">
+                <h5 style="font-weight:bolder">{{md.ModuleName}}</h5>
+                <table class="table table-striped">
+                    <tr>
+                        <th style="width:30%;">Page</th>
+                        <th>Create</th>
+                        <th>Edit</th>
+                        <th>View</th>
+                        <th>Delete</th>
+                        <th>Report</th>
+                    </tr>
+                    <tr ng-repeat="p in md.permissions" ng-show="p.FormView">
+                        <td>{{p.DisplayName}}</td>
+                        <td><span ng-show="p.FormCreate">&#10004;</span></td>
+                        <td><span ng-show="p.FormEdit">&#10004;</span></td>
+                        <td><span ng-show="p.FormView">&#10004;</span></td>
+                        <td><span ng-show="p.FormDelete">&#10004;</span></td>
+                        <td><span ng-show="p.Report">&#10004;</span></td>
+                    </tr>
+                </table>
+                <hr />
+            </div>
+        </div>
+    </div>
