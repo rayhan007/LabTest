@@ -49,7 +49,7 @@ namespace LabTestWeb
             services.AddControllers().AddNewtonsoftJson();
             services.AddMvc().AddNewtonsoftJson();
 
-            services.AddDbContext<eSenderContext>(options =>
+            services.AddDbContext<LabTestContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("labTestContext"));
             });
@@ -61,7 +61,7 @@ namespace LabTestWeb
                });
 
             //DI Registrations
-            services.AddScoped<ReporterStoryService>();
+            services.AddScoped<IndexService>();
             
         }
 

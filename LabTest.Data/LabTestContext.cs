@@ -7,9 +7,9 @@ using System.Text;
 
 namespace LabTest.Data
 {
-    public class eSenderContext : DbContext
+    public class LabTestContext : DbContext
     {
-        public eSenderContext(DbContextOptions<eSenderContext> options)
+        public LabTestContext(DbContextOptions<LabTestContext> options)
             : base(options)
         {
 
@@ -27,19 +27,18 @@ namespace LabTest.Data
         #region Tables
        
 
-        public  DbSet<Desk> UserGroups { get; set; }
-        public DbSet<ReporterStory> ReporterStories { get; set; }
+        public  DbSet<Building> Buildings { get; set; }
+        public DbSet<DataField> DataFields { get; set; }
+        public DbSet<MyObject> MyObjects { get; set; }
+        public DbSet<Reading> Readings { get; set; }
 
 
 
         #endregion
 
-
-
         #region Views
 
-
-        public  DbSet<View_UserRole> View_UserRoles { get; set; }
+        public  DbSet<View_Reading> View_Readings { get; set; }
         
 
 

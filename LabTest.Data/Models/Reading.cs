@@ -7,12 +7,15 @@ using System.Text;
 using System.Threading.Tasks;
 namespace LabTest.Data.Models
 {
-    [Table("District")]
-    public class District
+    [Table("Reading")]
+    public class Reading
     {
         [Key]
-        public int DistrictId { get; set; }
-        public string DistrictName { get; set; }
-        public string DistrictNameEng { get; set; }
+        public Int16 BuildingId { get; set; }
+        public Byte ObjectId { get; set; }
+        public Byte DatafieldId { get; set; }
+        public string Value { get; set; }
+        public string Timestamp { get; set; }
+
     }
 }

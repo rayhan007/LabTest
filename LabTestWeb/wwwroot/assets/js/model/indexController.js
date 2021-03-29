@@ -1,10 +1,42 @@
 ﻿eSenderApp.controller("indexController", function ($scope, $http, $rootScope, $window, $sce, $location) {
 
-    //$rootScope.loading = true;
-
-    $scope.newStoryModel = Object.create(null);
-
     
+
+    $scope.newIndexModel = Object.create(null);
+
+    $scope.loadBuildingList = function () {
+        $rootScope.loading = true;
+        $scope.BuildingList = [];
+        $http.get("/api/index/GetBuilding").then(function (response) {
+           
+            $scope.BuildingList = response.data;
+            $rootScope.loading = false;
+        });
+    }
+    $scope.loadBuildingList();
+
+    $scope.loadObjectList = function () {
+        $rootScope.loading = true;
+        $scope.ObjectList = [];
+        $http.get("/api/index/GetMyObjects").then(function (response) {
+           
+            $scope.ObjectList = response.data;
+            $rootScope.loading = false;
+        });
+    }
+    $scope.loadObjectList();
+
+    $scope.loadDataFields = function () {
+        $rootScope.loading = true;
+        $scope.DatafieldList = [];
+        $http.get("/api/index/GetDataFields").then(function (response) {
+          
+            $scope.DatafieldList = response.data;
+            $rootScope.loading = false;
+        });
+       
+    }
+    $scope.loadDataFields();
     
 
 

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace LabTest.Data.DomainModels
 {
     [NotMapped]
-    public class ReporterStoryModel : ReporterStory
+    public class ReadingModel : Reading
     {
 
       
