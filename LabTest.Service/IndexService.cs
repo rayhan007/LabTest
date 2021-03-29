@@ -27,33 +27,33 @@ namespace LabTest.Service.Story
     public class IndexService
     {
         private readonly LabTestContext db;
-     
+
         ConversionUtility conversion = new ConversionUtility();
-     
+
 
         public IndexService(LabTestContext db)
         {
             this.db = db;
-           
+
         }
 
-       
+
         public GlobalResponse<ReadingModel> Add(ReadingModel model)
         {
-          
+
 
             var response = new GlobalResponse<ReadingModel>();
             try
             {
-               
+
             }
             catch (Exception ex)
             {
                 response.IsSuccess = false;
                 response.Message = $"Error, {ex.Message}";
-              
+
             }
-          
+
 
             return response;
         }
@@ -105,6 +105,30 @@ namespace LabTest.Service.Story
             }
 
             return list;
+        }
+
+        public async Task<List<Reading>> GetSearchResults(int buildingid, string timestampfrom, string timestampto, int objectid, int datafieldid)
+        {
+
+            var list = new List<Reading>();
+            try
+            {
+            
+
+                var query = "";
+
+                query = $@" select * from Reading Where Timestamp between '" + timestampfrom + "' and '" + timestampto + "' and BuildingId like '%" + buildingid + "%' and ObjectId like '%" + objectid + "%' and DatafieldId like '%" + datafieldid + "%' ";
+
+                list = await db.Readings.FromSqlRaw(query).ToListAsync();              
+
+
+                return list;
+            }
+
+            catch (Exception ex)
+            {
+                return list;
+            }
         }
 
     }

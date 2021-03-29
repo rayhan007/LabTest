@@ -39,14 +39,23 @@
     $scope.loadDataFields();
     
     $scope.search = function () {
+        $scope.searchList = [];
         $rootScope.loading = true;
-        $scope.ReadingList = [];
-        $http.get("/api/index/GetAllReading").then(function (response) {
+        if ($scope.newIndexModel.TimestampFrom != null) {
+            var TimestampFrom = convertIntoSqlYYYYMMDD($scope.newIndexModel.TimestampFrom);
+        }
+        if ($scope.newIndexModel.TimestampTo != null) {
+            var TimestampTo = convertIntoSqlYYYYMMDD($scope.newIndexModel.TimestampTo);
+        }
 
-            $scope.ReadingList = response.data;
+        $http.get("/api/index/GetSearchList?buildingid=" + $scope.newIndexModel.BuildingId + "&timestampfrom=" + TimestampFrom + "&timestampto=" + TimestampTo + "&objectid=" + $scope.newIndexModel.ObjectId + "&datafieldid=" + $scope.newIndexModel.DatafieldId).then(function (response) {
             $rootScope.loading = false;
+            $scope.searchList = response.data;
         });
-    }
+
+        $rootScope.loading = false;
+        
+    };
 
 jQuery(document).ready(function () {
 

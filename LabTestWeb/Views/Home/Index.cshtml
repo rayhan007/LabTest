@@ -234,22 +234,24 @@
                             </select>
 
                         </div>
-                        <div class="col-md-2 col-sm-2 pb-2">
-                            <label class="col-sm-4 control-label">Date </label>
-                            <div class="col-md-12">
-                                <div class="input-group input-daterange">
-                                    <input type="text" id="single_cal1" name="Timestamp" data-ng-model="newIndexModel.Timestamp" class="form-control input1" placeholder="Date">
-                                </div>
+                        <div class="col-md-4 col-sm-4 pb-4">
+                            <label class="col-sm-4 control-label">Data Range </label>
+                            <div class="input-group input-daterange">
+                                <input type="text" data-ng-model="newIndexModel.TimestampFrom" class="form-control input1" placeholder="Date From" readonly>
+                                <input type="text" data-ng-model="newIndexModel.TimestampTo" class="form-control input2" placeholder="Date To" readonly>
                             </div>
 
+
+
                         </div>
+
                         <div class="col-md-2 save-btn pb-2">
                             <label class="col-sm-4 control-label"> </label>
-                            <button type="submit" ng-click="Search()" ng- class="btn-setting btn-hvr-setting-main btn-summer-sky btn-hvr text-uppercase" id="submit_btn" style="margin-top:0px!important;width:100%;padding:0;">
+                            <button type="button" ng-click="search()" ng- class="btn-setting btn-hvr-setting-main btn-summer-sky btn-hvr text-uppercase" id="submit_btn" style="margin-top:0px!important;width:100%;padding:0;">
                                 <i class="ti ti-reload ti-reload mr-2 d-none" aria-hidden="true"></i><b class="font-weight-normal">Search</b>
                             </button>
                         </div>
-
+                        {{searchList}}
 
                     </div>
                 </div>

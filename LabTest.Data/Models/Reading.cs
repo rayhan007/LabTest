@@ -14,8 +14,8 @@ namespace LabTest.Data.Models
         public Int16 BuildingId { get; set; }
         public Byte ObjectId { get; set; }
         public Byte DatafieldId { get; set; }
-        public string Value { get; set; }
-        public string Timestamp { get; set; }
+        public decimal Value { get; set; }
+        public DateTime Timestamp { get; set; }
 
     }
 }

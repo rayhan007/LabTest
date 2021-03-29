@@ -88,6 +88,27 @@ namespace LabTestWeb.WebAPI
             }
             return List;
         }
+
+        [HttpGet]
+        [Route("GetSearchList")]      
+        public async Task<List<Reading>> GetSearchList(int buildingid, string timestampfrom, string timestampto, int objectid, int datafieldid)
+        {
+           
+            var List = new List<Reading>();
+            try
+            {
+                List = await _indexService.GetSearchResults(buildingid, timestampfrom, timestampto, objectid, datafieldid);
+            }
+            catch (Exception ex)
+            {
+                new List<Reading>();
+            }
+            return List;
+        }
+
+
+
+
         #endregion
 
 
