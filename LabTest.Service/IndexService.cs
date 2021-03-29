@@ -107,19 +107,30 @@ namespace LabTest.Service.Story
             return list;
         }
 
-        public async Task<List<Reading>> GetSearchResults(int buildingid, string timestampfrom, string timestampto, int objectid, int datafieldid)
+        public async Task<List<Reading>> GetSearchResults(string buildingid, string timestampfrom, string timestampto, string objectid, string datafieldid)
         {
 
             var list = new List<Reading>();
             try
             {
-            
-
                 var query = "";
+
+                if (objectid == "null"|| objectid=="undefined")
+                {
+                    objectid = "";
+                }
+                if (datafieldid == "null" || datafieldid == "undefined")
+                {
+                    datafieldid = "";
+                }
+                if (buildingid == "null" || buildingid == "undefined")
+                {
+                    buildingid = "";
+                }
 
                 query = $@" select * from Reading Where Timestamp between '" + timestampfrom + "' and '" + timestampto + "' and BuildingId like '%" + buildingid + "%' and ObjectId like '%" + objectid + "%' and DatafieldId like '%" + datafieldid + "%' ";
 
-                list = await db.Readings.FromSqlRaw(query).ToListAsync();              
+                list = await db.Readings.FromSqlRaw(query).ToListAsync();
 
 
                 return list;

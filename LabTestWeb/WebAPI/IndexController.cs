@@ -91,7 +91,7 @@ namespace LabTestWeb.WebAPI
 
         [HttpGet]
         [Route("GetSearchList")]      
-        public async Task<List<Reading>> GetSearchList(int buildingid, string timestampfrom, string timestampto, int objectid, int datafieldid)
+        public async Task<List<Reading>> GetSearchList(string buildingid, string timestampfrom, string timestampto, string objectid, string datafieldid)
         {
            
             var List = new List<Reading>();

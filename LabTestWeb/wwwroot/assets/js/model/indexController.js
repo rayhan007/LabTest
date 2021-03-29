@@ -39,7 +39,7 @@
     $scope.loadDataFields();
     
     $scope.search = function () {
-        $scope.searchList = [];
+        $scope.searchListData = [];
         $rootScope.loading = true;
         if ($scope.newIndexModel.TimestampFrom != null) {
             var TimestampFrom = convertIntoSqlYYYYMMDD($scope.newIndexModel.TimestampFrom);
@@ -49,12 +49,48 @@
         }
 
         $http.get("/api/index/GetSearchList?buildingid=" + $scope.newIndexModel.BuildingId + "&timestampfrom=" + TimestampFrom + "&timestampto=" + TimestampTo + "&objectid=" + $scope.newIndexModel.ObjectId + "&datafieldid=" + $scope.newIndexModel.DatafieldId).then(function (response) {
+           
+            $scope.searchListData = response.data;
+
+             // Load Chart Data
+            var y = 0;
+            var data = [];
+            var dataSeries = { type: "line" };
+            var dataPoints = [];
+
+            // Start creating some random datas
+            var limit = 1000;
+            for (var i = 0; i < limit; i += 1) {
+                y += (Math.random() * 10 - 5);
+                dataPoints.push({
+                    x: i - limit / 2,
+                    y: y
+                });
+            }
+
+            dataSeries.dataPoints = dataPoints;
+            // End creating some random datas
+
+            //dataSeries.dataPoints = $scope.searchListData;
+  
+
+
+            data.push(dataSeries);
+
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                zoomEnabled: true,
+                title: {
+                    text: "Timeseries Data"
+                },
+                data: data  // random generator below
+            });
+            chart.render();
             $rootScope.loading = false;
-            $scope.searchList = response.data;
         });
 
-        $rootScope.loading = false;
-        
+
+       
     };
 
 jQuery(document).ready(function () {

@@ -34,9 +34,41 @@
 
     </script>
     <script src="~/assets/js/model/indexController.js"></script>
+    @*<script>
+        window.onload = function () {
+
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                zoomEnabled: true,
+                title: {
+                    text: "Timeseries Data"
+                },
+                data: data  // random generator below
+            });
+            chart.render();
+
+        }
+
+        var limit = 1000;
+
+        var y = 0;
+        var data = [];
+        var dataSeries = { type: "line" };
+        var dataPoints = [];
+        for (var i = 0; i < limit; i += 1) {
+            y += (Math.random() * 10 - 5);
+            dataPoints.push({
+                x: i - limit / 2,
+                y: y
+            });
+        }
+        dataSeries.dataPoints = dataPoints;
+        data.push(dataSeries);
+
+    </script>*@
+
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 }
-
-
 
 <style>
 
@@ -247,7 +279,7 @@
 
                         <div class="col-md-2 save-btn pb-2">
                             <label class="col-sm-4 control-label"> </label>
-                            <button type="button" ng-click="search()" ng- class="btn-setting btn-hvr-setting-main btn-summer-sky btn-hvr text-uppercase" id="submit_btn" style="margin-top:0px!important;width:100%;padding:0;">
+                            <button style="margin:8px 0px 0px 0px" type="button" ng-click="search()" ng- class="btn-setting btn-hvr-setting-main btn-summer-sky btn-hvr text-uppercase" id="submit_btn" style="margin-top:0px!important;width:100%;padding:0;">
                                 <i class="ti ti-reload ti-reload mr-2 d-none" aria-hidden="true"></i><b class="font-weight-normal">Search</b>
                             </button>
                         </div>
@@ -257,7 +289,8 @@
                 </div>
             </div>
 
-
+            <div id="chartContainer" style="height: 300px; max-width: 920px; margin: 0px auto;">
+            </div>
 
         </div>
     </div>

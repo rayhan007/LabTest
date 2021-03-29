@@ -38,7 +38,7 @@ namespace LabTest.Data
 
         #region Views
 
-        public  DbSet<View_Reading> View_Readings { get; set; }
+      
         
 
 
