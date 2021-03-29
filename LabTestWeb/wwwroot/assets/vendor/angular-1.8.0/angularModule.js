@@ -1,6 +1,6 @@
-var eSenderApp = angular.module('eSenderApp', ['ngFileUpload', 'ngSanitize']);
+var LabTestApp = angular.module('LabTestApp', ['ngFileUpload', 'ngSanitize']);
 
-eSenderApp.run(function ($rootScope, $http, $sce) {
+LabTestApp.run(function ($rootScope, $http, $sce) {
 
     $rootScope.libraryUrl = "http://localhost:81/";
 
@@ -65,7 +65,7 @@ eSenderApp.run(function ($rootScope, $http, $sce) {
 
 });
 
-eSenderApp.directive('capitalize', function () {
+LabTestApp.directive('capitalize', function () {
     return {
         require: 'ngModel',
         link: function (scope, element, attrs, modelCtrl) {
@@ -84,7 +84,7 @@ eSenderApp.directive('capitalize', function () {
     };
 });
 
-eSenderApp.directive('trimfrontbackspaces', function () {
+LabTestApp.directive('trimfrontbackspaces', function () {
     return {
         require: 'ngModel',
         link: function (scope, element, attrs, modelCtrl) {
@@ -103,7 +103,7 @@ eSenderApp.directive('trimfrontbackspaces', function () {
     };
 });
 
-eSenderApp.filter('propsFilter', function () {
+LabTestApp.filter('propsFilter', function () {
     return function (items, props) {
         var out = [];
 
@@ -135,7 +135,7 @@ eSenderApp.filter('propsFilter', function () {
     };
 });
 
-eSenderApp.filter('cut', function () {
+LabTestApp.filter('cut', function () {
     return function (value, wordwise, max, tail) {
         if (!value) return '';
 
@@ -159,7 +159,7 @@ eSenderApp.filter('cut', function () {
     };
 });
 
-eSenderApp.directive("angulardatepicker", function () {
+LabTestApp.directive("angulardatepicker", function () {
 
     function link(scope, element, attrs, controller) {
 
@@ -182,7 +182,7 @@ eSenderApp.directive("angulardatepicker", function () {
     };
 });
 
-eSenderApp.directive('sortable', function ($timeout) {
+LabTestApp.directive('sortable', function ($timeout) {
     return function (scope, element, attributes) {
         element.sortable({
             stop: function (event, ui) {
@@ -194,7 +194,7 @@ eSenderApp.directive('sortable', function ($timeout) {
     };
 });
 
-//eSenderApp.directive('angulardatepickerSSS', function () {
+//LabTestApp.directive('angulardatepickerSSS', function () {
 //    return {
 //        restrict: 'A',
 //        require: 'ngModel',
@@ -237,7 +237,7 @@ eSenderApp.directive('sortable', function ($timeout) {
 //});
 
 
-eSenderApp.directive('angulardatepickerwithyear', function () {
+LabTestApp.directive('angulardatepickerwithyear', function () {
     return {
         restrict: 'A',
         require: 'ngModel',
@@ -280,7 +280,7 @@ eSenderApp.directive('angulardatepickerwithyear', function () {
     };
 });
 
-eSenderApp.directive('angulardatepickeralt', function () {
+LabTestApp.directive('angulardatepickeralt', function () {
     return {
         restrict: 'A',
         require: 'ngModel',
@@ -323,7 +323,7 @@ eSenderApp.directive('angulardatepickeralt', function () {
     };
 });
 
-eSenderApp.directive('bindHtmlCompile', ['$compile', function ($compile) {
+LabTestApp.directive('bindHtmlCompile', ['$compile', function ($compile) {
     return {
         restrict: 'A',
         link: function (scope, element, attrs) {
@@ -337,13 +337,13 @@ eSenderApp.directive('bindHtmlCompile', ['$compile', function ($compile) {
     };
 }]);
 
-eSenderApp.filter('unsafe', function ($sce) {
+LabTestApp.filter('unsafe', function ($sce) {
     return function (val) {
         return $sce.trustAsHtml(val);
     };
 });
 
-eSenderApp.directive("compileHtml", function ($parse, $sce, $compile) {
+LabTestApp.directive("compileHtml", function ($parse, $sce, $compile) {
     return {
         restrict: "A",
         link: function (scope, element, attributes) {
@@ -362,7 +362,7 @@ eSenderApp.directive("compileHtml", function ($parse, $sce, $compile) {
     }
 });
 
-eSenderApp.directive("starRating", function () {
+LabTestApp.directive("starRating", function () {
     return {
         restrict: "A",
         template: "<ul class='rating'>" +
@@ -397,7 +397,7 @@ eSenderApp.directive("starRating", function () {
     };
 });
 
-eSenderApp.directive('fileModel', ['$parse', function ($parse) {
+LabTestApp.directive('fileModel', ['$parse', function ($parse) {
     return {
         restrict: 'A',
         link: function (scope, element, attrs) {
@@ -413,7 +413,7 @@ eSenderApp.directive('fileModel', ['$parse', function ($parse) {
     };
 }]);
 
-eSenderApp.service('fileUpload', ['$http', function ($http) {
+LabTestApp.service('fileUpload', ['$http', function ($http) {
     this.uploadFileToUrl = function (file, uploadUrl, entityId, entityType, fieldLabel, groupName) {
 
         var fd = new FormData();
@@ -509,7 +509,7 @@ eSenderApp.service('fileUpload', ['$http', function ($http) {
 
 }]);
 
-eSenderApp.directive('convertToNumber', function () {
+LabTestApp.directive('convertToNumber', function () {
 
     return {
         require: 'ngModel',
@@ -524,7 +524,7 @@ eSenderApp.directive('convertToNumber', function () {
     };
 });
 
-eSenderApp.filter('propsFilter', function () {
+LabTestApp.filter('propsFilter', function () {
     return function (items, props) {
         var out = [];
 

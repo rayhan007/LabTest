@@ -1,4 +1,4 @@
-﻿eSenderApp.controller("indexController", function ($scope, $http, $rootScope, $window, $sce, $location) {
+﻿LabTestApp.controller("indexController", function ($scope, $http, $rootScope, $window, $sce, $location) {
 
     
 
@@ -38,7 +38,15 @@
     }
     $scope.loadDataFields();
     
+    $scope.search = function () {
+        $rootScope.loading = true;
+        $scope.ReadingList = [];
+        $http.get("/api/index/GetAllReading").then(function (response) {
 
+            $scope.ReadingList = response.data;
+            $rootScope.loading = false;
+        });
+    }
 
 jQuery(document).ready(function () {
 
