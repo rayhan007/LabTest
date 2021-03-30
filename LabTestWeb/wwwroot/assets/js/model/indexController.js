@@ -59,19 +59,19 @@
             var dataPoints = [];
 
             // Start creating some random datas
-            var limit = 1000;
-            for (var i = 0; i < limit; i += 1) {
-                y += (Math.random() * 10 - 5);
-                dataPoints.push({
-                    x: i - limit / 2,
-                    y: y
-                });
-            }
+            //var limit = 1000;
+            //for (var i = 0; i < limit; i += 1) {
+            //    y += (Math.random() * 10 - 5);
+            //    dataPoints.push({
+            //        x: i - limit / 2,
+            //        y: y
+            //    });
+            //}
 
-            dataSeries.dataPoints = dataPoints;
+            //dataSeries.dataPoints = dataPoints;
             // End creating some random datas
 
-            //dataSeries.dataPoints = $scope.searchListData;
+            dataSeries.dataPoints = $scope.searchListData;
   
 
 
