@@ -12,23 +12,16 @@ using System.Globalization;
 using Microsoft.Extensions.Configuration;
 using System.Data;
 using LabTest.Service.Utilities;
-using LabTestWeb.Utilities;
+
 
 namespace LabTest.Service.Story
 {
-    //public interface IReporterStoryService
-    //{       
-    //    Task<List<ReporterStory>> GetAllReporterStoryList();
-    //    GlobalResponse<ReporterStoryModel> Add(ReporterStoryModel model);
-    //    GlobalResponse<ReporterStoryModel> Edit(ReporterStoryModel model);
-    //    ReporterStoryModel GetReporterStoryById(int id);
-    //    GlobalResponse<ReporterStoryModel> Delete(int id);
-    //}
+   
     public class IndexService
     {
         private readonly LabTestContext db;
 
-        ConversionUtility conversion = new ConversionUtility();
+      
 
 
         public IndexService(LabTestContext db)
